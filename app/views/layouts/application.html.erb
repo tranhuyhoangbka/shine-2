@@ -7,6 +7,9 @@
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
     <%= javascript_include_tag *webpack_asset_paths("application") %>
+    <% if @base_url %>
+      <base href="<%= @base_url %>">
+    <% end %>
   </head>
 
   <body class="container">

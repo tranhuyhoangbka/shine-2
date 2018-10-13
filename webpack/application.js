@@ -40,12 +40,33 @@ var AngularTestAppModule = ng.core.NgModule({
   constructor: function() {}
 });
 
+var CustomerAppComponent = require("./CustomerAppComponent");
 var CustomerSearchComponent = require("./CustomerSearchComponent");
+var CustomerDetailsComponent = require("./CustomerDetailsComponent");
+
+var routing = ng.router.RouterModule.forRoot([
+  {
+    path: "",
+    component: CustomerSearchComponent
+  },
+  {
+    path: ":id",
+    component: CustomerDetailsComponent
+  }
+]);
 
 var CustomerSearchAppModule = ng.core.NgModule({
-  imports: [ng.platformBrowser.BrowserModule, ng.forms.FormsModule, ng.http.HttpModule],
-  declarations: [CustomerSearchComponent],
-  bootstrap: [CustomerSearchComponent]
+  imports: [
+    ng.platformBrowser.BrowserModule,
+    ng.forms.FormsModule,
+    ng.http.HttpModule,
+    routing],
+  declarations: [
+    CustomerSearchComponent,
+    CustomerDetailsComponent,
+    CustomerAppComponent
+  ],
+  bootstrap: [CustomerAppComponent]
 }).Class({
   constructor: function() {}
 });
@@ -55,7 +76,12 @@ document.addEventListener('DOMContentLoaded', function() {
   if (shouldBootstrap) {
     ng.platformBrowserDynamic.platformBrowserDynamic().bootstrapModule(AngularTestAppModule);
   }
-  if(document.getElementById("shine-customer-search")) {
-    ng.platformBrowserDynamic.platformBrowserDynamic().bootstrapModule(CustomerSearchAppModule);
+  // if(document.getElementById("shine-customer-search")) {
+  //   ng.platformBrowserDynamic.platformBrowserDynamic().bootstrapModule(CustomerSearchAppModule);
+  // }
+  if (document.getElementById("shine-customer-search")) {
+    ng.platformBrowserDynamic.
+      platformBrowserDynamic().
+      bootstrapModule(CustomerSearchAppModule);
   }
 });

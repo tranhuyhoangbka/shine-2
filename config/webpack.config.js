@@ -38,6 +38,10 @@ var config = {
       {
         test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
         loader: "url?limit=10000&mimetype=image/svg+xml"
+      },
+      {
+        test: /\.html/,
+        loader: 'raw'
       }
     ]
   },

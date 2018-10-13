@@ -1,0 +1,11 @@
+<section class="customer-details" *ngIf="customer">
+  <h1>Customer Details {{customer.id}}</h1>
+  <h2>{{customer.first_name}} {{customer.last_name}}</h2>
+  <h3>{{customer.email}}</h3>
+  <h4>{{customer.username}}</h4>
+  <h5>
+    <small class="text-uppercase">Joined
+      {{customer.created_at}}
+    </small>
+  </h5>
+</section>
