@@ -1,11 +1,144 @@
 <section class="customer-details" *ngIf="customer">
-  <h1>Customer Details {{customer.id}}</h1>
-  <h2>{{customer.first_name}} {{customer.last_name}}</h2>
-  <h3>{{customer.email}}</h3>
-  <h4>{{customer.username}}</h4>
-  <h5>
-    <small class="text-uppercase">Joined
-      {{customer.created_at}}
-    </small>
-  </h5>
+  <form>
+    <div class="row">
+      <div class="col-md-6">
+        <article class="card">
+          <h1 class="card-title">Customer</h1>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label class="sr-only" for="first-name">First Name</label>
+                  <input type="text" name="first-name" class="form-control"
+                         value="{{customer.first_name}}">
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label class="sr-only" for="last-name">Last Name</label>
+                  <input type="text" name="last-name" class="form-control"
+                         value="{{customer.last_name}}">
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label class="sr-only" for="username">Username</label>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">@</span>
+                    </div>
+                    <input type="text" name="username" class="form-control"
+                         value="{{customer.username}}">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="sr-only" for="email">Email</label>
+              <input type="text" name="email" class="form-control"
+                     value="{{customer.email}}">
+            </div>
+            <label for="joined">Joined</label> 12/13/2014
+            <h2>Shipping Address</h2>
+            <div class="form-group">
+              <label class="sr-only" for="street-address">
+                Street Address
+              </label>
+              <input type="text" name="street-address" class="form-control"
+                     value="{{customer.shipping_street}}">
+            </div>
+            <div class="form-group">
+              <label class="sr-only" for="street-address-extra">
+                Street Address Extra
+              </label>
+              <input type="text" name="street-address-extra" class="form-control"
+                     value="Unit 101">
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label class="sr-only" for="city">City</label>
+                  <input type="text" name="city" class="form-control"
+                         value="{{customer.shipping_city}}">
+                </div>
+              </div>
+              <div class="col-md-2">
+                <div class="form-group">
+                  <label class="sr-only" for="state">State</label>
+                  <input type="text" name="state" class="form-control"
+                         value="{{customer.shipping_state}}">
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label class="sr-only" for="zip">Zip</label>
+                  <input type="text" name="zip" class="form-control" value="{{customer.shipping_zipcode}}">
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+      <div class="col-md-6">
+        <article class="card">
+          <h2 class=card-title>Billing Info</h2>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-7">
+                <p class="h4">
+                  ****_****_****-1234
+                  <span class="label label-success">VISA</span>
+                </p>
+                <p>
+                  <label>Expires: </label> 04/19
+                </p>
+              </div>
+              <div class="col-md-5 text-right">
+                <button class="btn btn-lg btn-default">
+                  View Details...
+                </button>
+              </div>
+            </div>
+            <h3>Billing Address <input type="checkbox"> Same as shipping? </h3>
+            <div class="form-group">
+              <label class="sr-only" for="street-address">
+                Street Address
+              </label>
+              <input type="text" name="street-address" class="form-control"
+                     value="{{customer.billing_street}}">
+            </div>
+            <div class="form-group">
+              <label class="sr-only" for="street-address-extra">
+                Street Address Extra
+              </label>
+              <input type="text" name="street-address-extra" class="form-control"
+                     value="Unit 101">
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label class="sr-only" for="city">City</label>
+                  <input type="text" name="city" class="form-control"
+                         value="{{customer.billing_city}}">
+                </div>
+              </div>
+              <div class="col-md-2">
+                <div class="form-group">
+                  <label class="sr-only" for="state">State</label>
+                  <input type="text" name="state" class="form-control"
+                         value="{{customer.billing_state}}">
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label class="sr-only" for="zip">Zip</label>
+                  <input type="text" name="zip" class="form-control" value="{{customer.billing_zipcode}}">
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </form>
 </section>
